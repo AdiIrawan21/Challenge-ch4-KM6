@@ -1,0 +1,74 @@
+### Penanganan End Point untuk Users
+
+### create data users beserta dengan profile nya
+POST http://localhost:3000/api/v1/users
+Content-Type: application/json
+
+{
+    "name": "agung",
+    "email": "agung@gmail.com",
+    "password": "agung123",
+    "identity_type": "KTP",
+    "identity_number": "1234998735",
+    "address": "Tangerang Selatan"
+}
+
+### menampilkan data users
+GET http://localhost:3000/api/v1/users
+
+
+### menampilkan detail data users by id beserta dengan profile nya
+GET http://localhost:3000/api/v1/users/3
+
+### edit data users by id beserta profile nya
+PUT http://localhost:3000/api/v1/users/1
+Content-Type: application/json
+
+{
+    "name": "Adi Irawan",
+    "email": "irawan@gmail.com",
+    "password": "irawan123",
+    "identity_type": "Passport",
+    "identity_number": "12349987612",
+    "address": "Kabupaten Tangerang"
+}
+
+
+### Penanganan End Point untuk Accounts
+
+### create accounts dengan users yang sudah terdaftar
+POST http://localhost:3000/api/v1/accounts
+Content-Type: application/json
+
+{
+    "users_id": 1,
+    "bank_name": "Mandiri",
+    "bank_account_number" : "10121033",
+    "balance": 600000
+}
+
+### menampilkan daftar accounts
+GET http://localhost:3000/api/v1/accounts
+
+### menampilkan detail accounts
+GET http://localhost:3000/api/v1/accounts/1
+
+
+### Penanganan End Point untuk Transactions
+
+### create transaction
+POST http://localhost:3000/api/v1/transactions
+Content-Type: application/json
+
+{
+    "source_account_id": 19,
+    "destination_account_id": 1,
+    "amount": 400000
+}
+
+### menampilkan daftar transaksi
+GET http://localhost:3000/api/v1/transactions
+
+
+### menampilkan detail trannsaksi (pengirim dan penerima)
+GET http://localhost:3000/api/v1/transactions/5
